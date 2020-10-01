@@ -42,9 +42,9 @@ public:
             return;
         }
 
-        newNode->next = last;
-        last = newNode;
-        totalElements++;
+       last->next=newnode;
+      last=newnode;
+      totalnodes++;
     }
 
     void removeElement() {
@@ -52,14 +52,10 @@ public:
             cout<<"Queue Already empty"<<endl;
             return;
         }
-        Node *temp = last;
-        for(int i = 1; i < totalElements-1; i++) {
-            temp = temp->next;
-        }
-        // cout<<temp->data<<endl;
-        free(temp->next);
-        temp->next = NULL;
-        first = temp;
+         int data=first->data;
+      first=first->next;
+      totalnodes--;
+      cout<<data<<" is popped"<<endl;
     }
 
     void display() {
@@ -67,11 +63,10 @@ public:
             cout<<"Queue is Empty"<<endl;
             return;
         }
-        Node *temp = last;
-        for(int i = 0; i < totalElements && temp!=NULL; i++) {
-            cout<<temp->data<<"  ";
-            temp = temp->next;
-        }
+         node *temp=first;
+       for(int i=0;i<totalnodes;i++){
+         cout<<temp->data<<" ";
+         temp=temp->next;
         cout<<endl;
     }
 };
